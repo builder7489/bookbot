@@ -3,8 +3,6 @@ from stats import count_words
 from stats import count_chars
 from stats import sort_chars
 
-# TODO get system exit code functional
-
 def main():
     
     if len(sys.argv) > 2:
@@ -13,7 +11,6 @@ def main():
     book = sys.argv[1]
 
     book_content = get_book_text(book)
-
 
     word_count = count_words(book_content)
     chars_count = count_chars(book_content)
