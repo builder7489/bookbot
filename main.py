@@ -1,10 +1,19 @@
+import sys
 from stats import count_words
 from stats import count_chars
 from stats import sort_chars
 
+# TODO get system exit code functional
+
 def main():
-    book = "books/frankenstein.txt"
+    
+    if len(sys.argv) > 2:
+        sys.exit(1)
+    
+    book = sys.argv[1]
+
     book_content = get_book_text(book)
+
 
     word_count = count_words(book_content)
     chars_count = count_chars(book_content)
@@ -35,5 +44,7 @@ def get_book_text(filepath):
 
     return file_contents
 
-
-main()
+try:
+    main()
+except Exception as e:
+    print(f"Usage: python3 main.py <path_to_book>")
