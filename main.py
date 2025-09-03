@@ -8,7 +8,7 @@ from stats import sort_chars
 def main():
     
     if len(sys.argv) > 2:
-        sys.exit(1)
+        sys.exit()
     
     book = sys.argv[1]
 
@@ -38,6 +38,7 @@ def main():
     
     print(f"{end_title}")
 
+
 def get_book_text(filepath):
     with open(filepath) as file:
         file_contents = file.read()
@@ -48,3 +49,4 @@ try:
     main()
 except Exception as e:
     print(f"Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
