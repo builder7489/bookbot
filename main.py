@@ -3,20 +3,20 @@ from stats import count_chars
 from stats import sort_chars
 
 def main():
-    book = "books/frankenstein_alt.txt"
+    book = "books/frankenstein.txt"
     book_content = get_book_text(book)
 
     word_count = count_words(book_content)
     chars_count = count_chars(book_content)
 
-    title = "BOOKBOT"
-    line = "============"
-    space = " "
-    header = line+space+title+space+line
-    
-    print(header)
-    print(f"Analyzing book found at {book}")
-    print(f"{word_count} words found in the document")
+    app_title = "============ BOOKBOT ============"
+    word_title = "----------- Word Count ----------"
+    char_title = "--------- Character Count -------"
+    end_title = "============= END ==============="
+
+    print(f"{app_title}\nAnalyzing book found at {book}...")
+    print(f"{word_title}\nFound {word_count} total words")
+    print(f"{char_title}")
 
     format_count = sort_chars(chars_count)
 
@@ -26,6 +26,8 @@ def main():
 
         if letter.isalpha():
             print(f"{letter}: {number}")
+    
+    print(f"{end_title}")
 
 def get_book_text(filepath):
     with open(filepath) as file:
